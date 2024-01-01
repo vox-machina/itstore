@@ -1,16 +1,20 @@
 (ns voxmachina.itstore.core-test
   (:require [clojure.test :refer [deftest is testing]]
             [voxmachina.itstore.core :as core]
+            [voxmachina.itstore.postrepo :as its]
             [voxmachina.itstore.postrepo-memory :as itsmem]))
 
-(deftest create-post
-  (testing "Receive correct representatoin upon post creation"
-    (with-redefs [voxmachina.itstore.core/post-repo
-                  (itsmem/repo (atom {}))]
-      (is (= {"1" {:name "PostRepoMemoryCreated"}} (core/create-post "1" {:name "PostRepoMemoryCreated"}))))))
+(def pr-mem (itsmem/repo (atom {})))
 
-(deftest fetch-post
-  (testing "Receive correct representation upon post creation"
-    (with-redefs [voxmachina.itstore.core/post-repo
-                  (itsmem/repo (atom {"1" {:name "PostRepoMemory"}}))]
-      (is (= {:name "PostRepoMemory"} (core/post "1"))))))
+(defn create-post [id data] (its/create pr-mem id data))
+
+(defn get-post [id] (its/fetch pr-mem id))
+
+(deftest create-post-test
+  (testing "Receive correct representation on post creation"
+    (is (= {"1" {:name "CreateTest"}} (create-post "1" {:name "CreateTest"})))))
+
+(deftest fetch-post-test
+  (testing "Retrieve a post from post repo"
+    (is (= {:name "CreateTest"} (get-post "1")))))
+
