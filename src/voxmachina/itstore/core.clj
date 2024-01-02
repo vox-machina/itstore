@@ -1,4 +1,5 @@
 (ns voxmachina.itstore.core
+  "Demonstrates use of the library outside the context of unit tests."
   (:require [voxmachina.itstore.postrepo :as its]
             [voxmachina.itstore.postrepo-memory :as itsmem]))
 
