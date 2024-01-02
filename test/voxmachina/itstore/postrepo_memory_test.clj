@@ -1,4 +1,4 @@
-(ns voxmachina.itstore.core-test
+(ns voxmachina.itstore.postrepo-memory-test
   (:require [clojure.test :refer [deftest is testing]]
             [voxmachina.itstore.core :as core]
             [voxmachina.itstore.postrepo :as its]
