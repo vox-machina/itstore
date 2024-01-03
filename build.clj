@@ -19,13 +19,6 @@
     (when-not (zero? exit) (throw (ex-info "Tests failed" {}))))
   opts)
 
-(defn build
-  "builds indieweb-toolkit store - taking care of setup, version files etc"
-  [_]
-  (println "building...")
-  (println "version: " version)
-  (b/write-file {:path version-file :content {:indieweb-toolkit-store version}}))
-
 (defn- pom-template [version]
   [[:description "Indieweb post repository with multiple implementations."]
    [:url "https://github.com/vox-machina/itstore"]
@@ -54,6 +47,8 @@
 
 
 (defn ci "Run the CI pipeline of tests (and build the JAR)." [opts]
+  (println "Running continuous integration...")
+  (println "version: " version)
   (test opts)
   (b/delete {:path "target"})
   (let [opts (jar-opts opts)]
