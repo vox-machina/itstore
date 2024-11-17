@@ -12,6 +12,12 @@ See unit tests and core.clj to learn how to use in your projects. More usage ins
 
 Run the project's tests:
 
+For now you will need to create a directory in your home folder:
+
+```bash
+$ mkdir -p $HOME/.voxmachina/itstore/test/data/posts
+```
+
 ```bash
 $ clj -T:build test
 ```
