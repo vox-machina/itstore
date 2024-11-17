@@ -18,6 +18,8 @@ For now you will need to create a directory in your home folder:
 $ mkdir -p $HOME/.voxmachina/itstore/test/data/posts
 ```
 
+A file will be created in this directory called flibble.edn.
+
 ```bash
 $ clj -T:build test
 ```
