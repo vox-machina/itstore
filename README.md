@@ -10,7 +10,7 @@ See unit tests and core.clj to learn how to use in your projects. More usage ins
 
 ### Run tests
 
-Run the project's tests:
+Run the project's tests.
 
 TODO: For now you will need to create a directory in your home folder:
 
